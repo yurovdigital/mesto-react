@@ -8,7 +8,7 @@
 ![CSS3](https://img.shields.io/badge/-CSS3-141130?style=flat-square&logo=CSS3&logoColor=009900)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-141130?style=flat-square&logo=JavaScript&logoColor=yellow)
 ![Webpack](https://img.shields.io/badge/-Webpack-141130?style=flat-square&logo=Webpack&)
-![React](https://img.shields.io/badge/-React-141130?style=for-the-badge&logo=React)
+![React](https://img.shields.io/badge/-React-141130?style=flat-square&logo=React&)
 
 ---
 
@@ -19,7 +19,7 @@
 ---
 
 ![Webpack](https://img.shields.io/badge/-Webpack-141130?style=flat-square&logo=Webpack&)
-![React](https://img.shields.io/badge/-React-141130?style=for-the-badge&logo=React)
+![React](https://img.shields.io/badge/-React-141130?style=flat-square&logo=React&)
 
 
 * `npm run dev` - сборка для разработки
