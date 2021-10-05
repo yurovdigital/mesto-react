@@ -11,7 +11,7 @@ function ImagePopup(props) {
       <div className="popup__image-container">
         <button
           type="button"
-          class="popup__close-button"
+          className="popup__close-button"
           aria-label="Закрыть окно"
           onClick={props.onClose}
         ></button>

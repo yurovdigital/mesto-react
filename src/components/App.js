@@ -6,9 +6,9 @@ import PopupWithForm from './PopupWithForm'
 import ImagePopup from './ImagePopup'
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState()
-  const [isEditAvatarPopupOpen, setEditAvatarOpen] = React.useState()
-  const [isAddPlacePopupOpen, setAddPlaceOpen] = React.useState()
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false)
+  const [isEditAvatarPopupOpen, setEditAvatarOpen] = React.useState(false)
+  const [isAddPlacePopupOpen, setAddPlaceOpen] = React.useState(false)
   const [selectedCard, setSelectedCard] = React.useState({name: '', link: ''})
 
   function handleEditProfileClick() {
@@ -147,24 +147,6 @@ function App() {
 
         {/* POPUP - IMAGE FULLSCREEN */}
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-
-        {/* <!-- POPUP - DELETE PHOTO  -->
-        <article className="popup popup_confirm-delete">
-          <div className="popup__container">
-            <button
-              type="button"
-              className="popup__close-button"
-              aria-label="Закрыть окно"
-            ></button>
-            <h3 className="popup__title">Вы уверены?</h3>
-            <button
-              className="popup__submit-button popup__submit-button_confirm-delete"
-              type="submit"
-            >
-              Да
-            </button>
-          </div>
-        </article> */}
       </div>
     </div>
   )
