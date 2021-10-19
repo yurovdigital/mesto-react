@@ -4,7 +4,7 @@ class Api {
     this._headers = options.headers
   }
 
-  _hanldeResponse = res => {
+  _hanldeResponse = (res) => {
     if (!res.ok) {
       return Promise.reject(`Ошибка: ${res.status}`)
     }
@@ -15,38 +15,38 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Получение инфо о пользователе */
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Загрузка инфо о пользователе */
-  patchUserInfo(name, about) {
+  patchUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: about,
+        name: data.name,
+        about: data.about,
       }),
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Добавление фото */
-  addNewPhoto(name, link) {
+  addNewPhoto(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link,
+        name: data.name,
+        link: data.link,
       }),
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Удаление фото */
@@ -54,7 +54,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${photoID}`, {
       method: 'DELETE',
       headers: this._headers,
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Лайк фото */
@@ -62,7 +62,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/likes/${photoId}`, {
       method: 'PUT',
       headers: this._headers,
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Снятие лайка */
@@ -70,7 +70,15 @@ class Api {
     return fetch(`${this._baseUrl}/cards/likes/${photoId}`, {
       method: 'DELETE',
       headers: this._headers,
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
+  }
+
+  /* Снятие и установка лайка */
+  changeLikeCardStatus(photoId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/likes/${photoId}`, {
+      method: isLiked ? 'PUT' : 'DELETE',
+      headers: this._headers,
+    }).then((res) => this._hanldeResponse(res))
   }
 
   /* Обновление аватара */
@@ -81,7 +89,7 @@ class Api {
       body: JSON.stringify({
         avatar: data.avatar,
       }),
-    }).then(res => this._hanldeResponse(res))
+    }).then((res) => this._hanldeResponse(res))
   }
 }
 
